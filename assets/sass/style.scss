@@ -1,0 +1,362 @@
+* {
+
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    width: 100%;
+    line-height: 1;
+    font-family: "New Rocker", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    background-color: black;
+    height: 100px;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            position: relative;
+            padding-left: 4rem;
+
+            &::before {
+                top: 0;
+                left: 0;
+                position: absolute;
+                content: "";
+                background-image: url("/assets/img/estrella-estrella-ella-que-dice-estrella-rock-ella_1230457-45517.jpg");
+                background-size: contain;
+                max-width: 100%;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+            }
+        }
+
+        nav {
+            ul {
+                gap: 20px;
+                display: flex;
+                list-style: none;
+
+                li {
+                    a {
+                        font-size: 0.9rem;
+                        position: relative;
+                        display: inline-block;
+
+                        &:hover {
+                            color: rgb(173, 18, 18);
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: -5px;
+                            width: 0%;
+                            height: 2px;
+                            background-color: rgb(133, 15, 15);
+                            transition: width 0.25s ease-in;
+
+                        }
+
+                        &:hover::before {
+                            width: 100%;
+
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+main {
+    width: 100%;
+    max-width: 100%;
+
+    .hero {
+        text-transform: uppercase;
+        position: relative;
+        display: flex;
+        margin: 0;
+        background-image: url("/assets/img/img-9.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 40rem;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: center;
+
+        .hero__overlay {
+            position: absolute;
+            padding-bottom: 2rem;
+
+            h2 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+
+            a {
+                padding: 0.5rem;
+                background-color: rgb(128, 9, 9);
+
+                &:hover {
+                    background-color: rgb(165, 14, 14);
+                }
+            }
+        }
+    }
+
+    .events {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 20rem;
+        margin: 0;
+        background-color: rgb(53, 53, 53);
+
+
+        table {
+            //Lo hice para que no se cepararan las colunas y filas
+            border-collapse: collapse;
+            box-shadow: 1px 5px 10px rgba(255, 0, 0, 0.479);
+            width: 70%;
+
+            thead {
+                background-color: rgb(126, 5, 5);
+
+                th {
+                    padding: 0.5rem;
+                }
+            }
+
+            tbody {
+                td {
+                    padding: 0.5rem;
+                }
+
+                tr:first-child {
+                    background-color: rgb(34, 34, 34);
+                }
+
+                tr:nth-child(2) {
+                    background-color: rgb(117, 117, 117);
+                }
+
+                tr:last-child {
+                    background-color: rgb(68, 16, 16);
+                }
+            }
+        }
+    }
+
+    .about {
+        margin: 0;
+        display: flex;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        justify-content: center;
+
+        img {
+            border: 1px solid red;
+            max-width: 50%;
+            width: 50%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .about__content {
+            flex: 1;
+            gap: 1rem;
+
+            h2 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+
+            h3 {
+                padding: 1rem 0rem;
+                color: rgb(150, 12, 12);
+                font-size: clamp(1rem, 4vw, 1.8rem);
+            }
+
+            ul {
+                padding-left: 2rem;
+
+                li {
+                    &::marker {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+
+    .media {
+        margin: 0;
+        padding: 1rem 2rem;
+
+        .media__grid {
+            display: grid;
+
+
+            gap: 1rem;
+            overflow: hidden;
+
+            img {
+                border: 1px solid red;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease-in;
+
+                &:hover {
+                    transform: scale(1.05);
+                    border: none;
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 1020px;
+                grid-column: 5/-1;
+                grid-row: 1/-3;
+            }
+        }
+    }
+
+
+}
+
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 2rem;
+    background-color: rgba(0, 0, 0, 0.788);
+    border-top: 1px solid rgb(94, 12, 12);
+
+
+}
+
+button {
+    all: unset;
+    font-family: inherit;
+}
+
+//RESPONSIVE
+//cuando la pantalla tiene más de 720 pixeles oculto el boton
+@media (min-width:720px) {
+    header {
+        button {
+            display: none;
+        }
+    }
+
+
+    .media__grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 400px);
+    }
+
+    iframe {
+        display: block;
+    }
+
+    footer {
+        height: 60px;
+
+        .footer__content {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            ul {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+        }
+    }
+}
+
+//cuando la pantalla tiene menos de 720px organizo y muestro todo
+@media (max-width:720px) {
+    header {
+        position: relative;
+
+        button {
+            display: flex;
+        }
+
+        nav {
+            display: none;
+
+            ul {
+                border-top: 1px solid white;
+                top: 100px;
+                right: 0;
+                padding: 2rem;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.767);
+                position: absolute;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            &.active {
+                display: flex;
+            }
+
+        }
+
+    }
+
+    main {
+        .media__grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 100px);
+        }
+
+        iframe {
+            display: none;
+        }
+    }
+
+    footer {
+
+        height: 100px;
+
+        .footer__content {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+                list-style: none;
+            }
+        }
+
+    }
+}
