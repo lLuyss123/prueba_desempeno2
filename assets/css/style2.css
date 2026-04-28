@@ -120,6 +120,9 @@ main .events table thead {
 main .events table thead th {
   padding: 0.5rem;
 }
+main .events table tbody {
+  text-align: center;
+}
 main .events table tbody td {
   padding: 0.5rem;
 }
@@ -253,6 +256,9 @@ button {
   }
   header nav.active {
     display: flex;
+  }
+  .ocultar {
+    display: none;
   }
   main .media__grid {
     grid-template-columns: repeat(4, 1fr);

@@ -148,6 +148,8 @@ main {
             }
 
             tbody {
+                text-align: center;
+
                 td {
                     padding: 0.5rem;
                 }
@@ -327,6 +329,10 @@ button {
 
         }
 
+    }
+
+    .ocultar {
+        display: none;
     }
 
     main {
